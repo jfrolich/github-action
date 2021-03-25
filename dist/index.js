@@ -48462,7 +48462,9 @@ function run(name, command, args) {
                 case 0:
                     PATH = process.env.PATH ? process.env.PATH : "";
                     core.startGroup(name);
-                    return [4 /*yield*/, exec_1.exec(command, args, { env: __assign(__assign({}, process.env), { PATH: PATH }) })];
+                    return [4 /*yield*/, exec_1.exec("arch", __spreadArrays(["-arm64", command], args), {
+                            env: __assign(__assign({}, process.env), { PATH: PATH }),
+                        })];
                 case 1:
                     _a.sent();
                     core.endGroup();

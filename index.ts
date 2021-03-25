@@ -12,7 +12,9 @@ const manifestKey = core.getInput("manifest");
 async function run(name: string, command: string, args: string[]) {
   const PATH = process.env.PATH ? process.env.PATH : "";
   core.startGroup(name);
-  await exec(command, args, { env: { ...process.env, PATH } });
+  await exec("arch", ["-arm64", command, ...args], {
+    env: { ...process.env, PATH },
+  });
   core.endGroup();
 }
 function runEsyCommand(name: string, args: string[]) {
