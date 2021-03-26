@@ -15,7 +15,7 @@ const run = (name: string, command: string) => {
   core.endGroup();
 };
 const runEsyCommand = (name: string, command: string) => {
-  command = manifestKey ? `esy -P ${manifestKey} ${command}` : `esy ${command}`;
+  command = manifestKey ? `esy @${manifestKey} ${command}` : `esy ${command}`;
   return run(name, command);
 };
 

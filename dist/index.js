@@ -38938,7 +38938,7 @@ const run = (name, command) => {
     core.endGroup();
 };
 const runEsyCommand = (name, command) => {
-    command = manifestKey ? `esy -P ${manifestKey} ${command}` : `esy ${command}`;
+    command = manifestKey ? `esy @${manifestKey} ${command}` : `esy ${command}`;
     return run(name, command);
 };
 const main = async () => {
